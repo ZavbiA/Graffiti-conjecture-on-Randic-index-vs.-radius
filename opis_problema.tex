@@ -1,0 +1,59 @@
+% preambula dokumenta
+\documentclass[a4paper, 10pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[pdftex]{graphics}
+\usepackage{graphicx}
+\usepackage{eurosym}
+\usepackage{float}
+\graphicspath{ {./images/} }
+
+% telo dokumenta
+\begin{document}
+\title{Predpostavka o Randićevem indeksu in radiusu}
+\author{Anja Žavbi Kunaver\\Jaka Munda}
+
+\maketitle
+
+\section{Opis problema}
+Računalniški program Graffiti je postavil domnevo, da velja: \\
+Če je $G=(V, E)$ enostaven povezan graf, ker pomeni da graf ne vsebuje zank ter je brez vzporednih povezav, potem velja: $$ Ra(G) \geq rad(G) -1$$
+
+% Potrebno je testirati domnevo na različne načine na manjših in večjih grafih.
+% Z uporabo metahevristične populacije je potrebno preizkusiti domnevo na večjih grafih in upati na njeno ovrgbo.
+
+\subsection*{Opombe:}
+\begin{enumerate}
+\item
+Ekscentričnost vozlišča $v$ je razdalja do njegovega najbolj oddaljenega vozlišča; tj. $\max \{d(v,u) : u \in V(G) \}$.
+%$rad(G)$ je radius grafa; tj. minimum ekscentričnosti vozlišč grafa.
+\item Radius grafa $rad(G)$ pa pomeni minimum ekscentričnosti vozlišč grafa.
+\item
+$Ra(G)$ je Randićev indeks grafa G. Definiran je kot
+$$Ra(G) = \sum_{uv \in E(G)} \frac{1}{\sqrt{d(u) d(v)}},$$
+kjer $d(x)$ predstavlja stopnjo vozlišča $x$.
+\end{enumerate}
+
+%Računalniški program $Graffiti$ nam je postavil naslednjo lemo.
+
+%Naj bo $G=(V,E)$ enostaven povezan graf, torej v grafu ni zank in ni vzporednih povezav. Potem velja neenakost: $$ Ra(G) \geq rad(G) -1$$ Tu smo z $Ra(G)$ označili randičev indeks, ki je %definiran kot: $$Ra(G) = \sum_{uv \in E(G)} \frac{1}{\sqrt{d(u) d(v)}},$$ kjer $d(x)$ predstavlja število povezav, ki imajo za svoje krajišče vozlišče $x$. Z $rad(G)$ pa smo označili radius %grafa $G$, kar pomeni najmansa najvecja razdalja med dvema vozliščema.
+
+\section{Opis dela}
+
+To neenakost bova testirala na več različnih malih grafih. Nato pa bova z uporabo metahevristične populacije poskušala ovreči to lemo za velike grafe.
+
+\section{Primer}
+
+\includegraphics{primer}
+
+$$radius = 2$$
+$$Randičev \ indeks \doteq 3.21$$
+$$3.21 > 2 - 1$$
+
+Torej na tem grafu lema drži.
+
+
+
+\end{document}
