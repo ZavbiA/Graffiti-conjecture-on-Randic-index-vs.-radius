@@ -18,22 +18,21 @@
 \maketitle
 
 \section{Opis problema}
-Računalniški program Graffiti je postavil domnevo, da velja: \\
-Če je $G=(V, E)$ enostaven povezan graf, ker pomeni da graf ne vsebuje zank ter je brez vzporednih povezav, potem velja: $$ Ra(G) \geq rad(G) -1$$
+Računalniški program Graffiti je postavil lemo, da za enostaven povezan graf $G=(V, E)$ velja, $$ Ra(G) \geq rad(G) -1$$
 
 % Potrebno je testirati domnevo na različne načine na manjših in večjih grafih.
 % Z uporabo metahevristične populacije je potrebno preizkusiti domnevo na večjih grafih in upati na njeno ovrgbo.
 
 \subsection*{Opombe:}
 \begin{enumerate}
-\item
-Ekscentričnost vozlišča $v$ je razdalja do njegovega najbolj oddaljenega vozlišča; tj. $\max \{d(v,u) : u \in V(G) \}$.
+\item Graf je enostaven, če ne vsebuje zank in je brez vzporednih povezav,
+\item ekscentričnost vozlišča $v$ je razdalja do njegovega najbolj oddaljenega vozlišča; tj. $\max \{d(v,u) : u \in V(G) \}$,
 %$rad(G)$ je radius grafa; tj. minimum ekscentričnosti vozlišč grafa.
-\item Radius grafa $rad(G)$ pa pomeni minimum ekscentričnosti vozlišč grafa.
+\item radius grafa $rad(G)$ pa pomeni minimum ekscentričnosti vozlišč grafa,
 \item
 $Ra(G)$ je Randićev indeks grafa G. Definiran je kot
 $$Ra(G) = \sum_{uv \in E(G)} \frac{1}{\sqrt{d(u) d(v)}},$$
-kjer $d(x)$ predstavlja stopnjo vozlišča $x$.
+\item $d(x)$ predstavlja stopnjo vozlišča $x$ oz. število povezav ki imajo vozlišče $x$ za svoje krajišče.
 \end{enumerate}
 
 %Računalniški program $Graffiti$ nam je postavil naslednjo lemo.
@@ -42,7 +41,7 @@ kjer $d(x)$ predstavlja stopnjo vozlišča $x$.
 
 \section{Opis dela}
 
-To neenakost bova testirala na več različnih malih grafih. Nato pa bova z uporabo metahevristične populacije poskušala ovreči to lemo za velike grafe.
+To neenakost bova testirala na malih grafih z željo da ovrževa to neenakost. Če nama ne uspe ovreči leme na manjših grafih, bova z uporabo populacijske metahevristike poskušala ovreči to neenakost na velikih grafih.
 
 \section{Primer}
 
