@@ -7,6 +7,7 @@
 \usepackage[pdftex]{graphics}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{eurosym}
 \usepackage{float}
 \graphicspath{ {./images/} }
@@ -166,11 +167,26 @@ Lemo sva nato testirala z vnašanjem različnih vrednosti v zadnjo funkcijo in o
 \subsection{Splošne ugotovitve}
 Ugotovila sva, da imajo polni grafi z več kot enim vozliščem radius vedno enak 1. Iz tega dokaj očitno sledi, da neenakost velja (celo stroga neenakost).
 Z algoritmom za male grafe sva uspela dokazati, da neenakost drži za vse enostavne povezane grafe s številom vozlišč  $n \leq 9$.
-Tudi z genetskim algoritmom za večje grafe pa nama ni uspelo najti protiprimera. Morda bi uspelo s kakšnimi drugimi vhodnimi podatki.
+Tudi z genetskim algoritmom za večje grafe pa nama ni uspelo najti protiprimera.
 Na podlagi tega leme ne moreva ovreči ali potrditi v celoti.
 
 \subsection{Časovna zahtevnost}
-Na čas izvajanja najbolj vpliva velikost grafov. Velikost populacije nima tako velikega vpliva. Populacije morajo biti čim večje, sicer so grafi lahko isti (npr.pri 10 so skoraj gotovo sami isti grafi). S povečevanjem števila ponovitev se linearno veča tudi čas izvajanja.
+%Na čas izvajanja najbolj vpliva velikost grafov. Velikost populacije nima tako velikega vpliva. Populacije morajo biti čim večje, sicer so grafi lahko isti (npr.pri 10 so skoraj gotovo sami isti grafi). S povečevanjem števila ponovitev se linearno veča tudi čas izvajanja.
+
+\begin{figure}[H]
+\begin{subfigure}{38mm}
+\centering
+\includegraphics[width=4cm]{velikost_populacije}
+\end{subfigure}
+\begin{subfigure}{38mm}
+\centering
+\includegraphics[width=4cm]{stevilo_populacij}
+\end{subfigure}
+\begin{subfigure}{38mm}
+\centering
+\includegraphics[width=4cm]{velikost_grafov}
+\end{subfigure}
+\end{figure}
 
 Z večkratnimi poskusi sva prišla do ugotovitve, da je časovna zahtevnost najinega algoritma enaka $O(čas\_izvajanja * velikost\_populacije * n^2)$.  Čas izvajanja se torej najbolj poveča, če povečava število vozlišč. To pa zato, ker ima funkcija $randic$ casovno zahtevnost $O(n^2)$ in posledično ima isto časovno zahtevnost tudi funkcij $fitness$.  Ker je v funkciji $nova\_populacija$ potrebno za vsak graf izračunati nov $fitness$, je časovna zahtevnost te funkcije enaka $O(velikost\_populacije * n^2)$. V genetskem algoritmu je sicer odvisno, koliko časa se izvaja, ampak  je potrebno v vsaki ponovitvi narediti novo populacijo, zato ima v najinem primeru algoritem časovno zahtevnost $O(čas\_izvajanja * velikost\_populacije * n^2)$.
 
